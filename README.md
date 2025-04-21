@@ -11,12 +11,13 @@ git clone git@github.com:diskin-lab-chop/AutoGVP.git
 
 # First, Split multi-patient VCF files into single VCF files. 
 List of proband IDs were pulled from the Variant Workbench (VWB) table called `Occurences`
-with the following code:
+with the following code (Code is in the U24 Data Studio session on CAVATICA):
+```
 ocr = spark.read.parquet(OCR_STUDY_PATH).where( (F.col('is_proband') == True))
 chd = ocr.select('sample_id').distinct().toPandas()
 pd.DataFrame(chd['sample_id'].values).to_csv('/sbgenomics/output-files/chd_probands.txt', index=False,header=False)
+```
 
-(Code is in the U24 Data Studio session on CAVATICA.)
 
 There are two bash scripts that split the multi-patient VCFs. 
 ~/OpenPedCan_Data/single_vcfs/**split_vcfs.sh** --> uses bcftools to split the VCFs

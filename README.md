@@ -2,8 +2,7 @@
 Scripts for running autoGVP
 
 # Clone repo
-### Autogvp — https://github.com/diskin-lab-chop/AutoGVP?tab=readme-ov-file
-
+Autogvp — https://github.com/diskin-lab-chop/AutoGVP?tab=readme-ov-file
 ```bash
 cd /mnt/isilon/opentargets/OpenPedCan_Data/
 git clone git@github.com:diskin-lab-chop/AutoGVP.git
@@ -19,7 +18,7 @@ pd.DataFrame(chd['sample_id'].values).to_csv('/sbgenomics/output-files/chd_proba
 
 (Code is in the U24 Data Studio session on CAVATICA.)
 
-### There are two bash scripts that split the multi-patient VCFs. 
+There are two bash scripts that split the multi-patient VCFs. 
 ~/OpenPedCan_Data/single_vcfs/**split_vcfs.sh** --> uses bcftools to split the VCFs
 ~/OpenPedCan_Data/single_vcfs/**run_splits.sh** --> calls split_vcfs.sh for each cohort (eg CHD, NBL, GNINT, etc.)
 
@@ -41,9 +40,7 @@ nbl_out_dir= ~/OpenPedCan_Data/single_vcfs/split_vcfs/nbl/
 ```
 
 
-// ################### //
-// ### 1. InterVar ### //
-// ################### // 
+# 1. InterVar 
 
 takes about an hour per a 2GB VCF...
 Directory = /OpenPedCan_Data/autoGVP/AutoGVP-main/prereqs/intervar 
@@ -55,25 +52,22 @@ curl https://www.omim.org/static/omim/data/mim2gene.txt > intervar/Intervar/inte
 Copy Perl scripts from annovar to interVar directory (InterVar needs several of them.)
 `cp ~/OpenPedCan_Data/autoGVP/AutoGVP-main/prereqs/annovar/*.pl ~/OpenPedCan_Data/autoGVP/AutoGVP-main/prereqs/intervar/InterVar/`
 
-### run in the InterVar GitHub directory (this will d/l a bunch of large files the first time it's run.)
+Run in the InterVar GitHub directory (this will d/l a bunch of large files the first time it's run.)
+```
 python Intervar.py -b hg38 -i ~/OpenPedCan_Data/CHD_KF_phs001846/809aa738-a3a2-4923-ae67-b065ba5f353e.single.vqsr.filtered.vep_105.vcf.gz --input_type=VCF -o test_VEP_interVar
+```
 
-
-// #################### //
-// #### 2. Annovar  ### //
-// #################### // 
-
+# 2. Annovar 
 Directory = ~/OpenPedCan_Data/autoGVP/AutoGVP-main/prereqs/annovar 
 
-### Download ANNOVAR from website
+Download ANNOVAR from website
 Need to enter email on website and they will send download link.
 tar -xvzf annovar.latest.tar.gz
 
-
-
-### Run Annovar
+Run Annovar:
+```
 perl table_annovar.pl data/test_VEP.vcf hg38 --buildver hg38 --out test_VEP --remove --protocol gnomad211_exome,gnomad211_genome --operation f,f --vcfinput
-
+```
 
 
 

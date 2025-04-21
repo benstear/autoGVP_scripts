@@ -4,7 +4,7 @@ Scripts for running autoGVP
 # Clone repo
 Autogvp — https://github.com/diskin-lab-chop/AutoGVP?tab=readme-ov-file
 ```bash
-cd /mnt/isilon/opentargets/OpenPedCan_Data/
+cd ~/OpenPedCan_Data/
 git clone git@github.com:diskin-lab-chop/AutoGVP.git
 ```
 

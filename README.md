@@ -12,7 +12,7 @@ git clone git@github.com:diskin-lab-chop/AutoGVP.git
 # First, Split multi-patient VCF files into single VCF files. 
 List of proband IDs were pulled from the Variant Workbench (VWB) table called `Occurences`
 with the following code (Code is in the U24 Data Studio session on CAVATICA):
-```
+```python
 ocr = spark.read.parquet(OCR_STUDY_PATH).where( (F.col('is_proband') == True))
 chd = ocr.select('sample_id').distinct().toPandas()
 pd.DataFrame(chd['sample_id'].values).to_csv('/sbgenomics/output-files/chd_probands.txt', index=False,header=False)
@@ -46,10 +46,11 @@ nbl_out_dir= ~/OpenPedCan_Data/single_vcfs/split_vcfs/nbl/
 takes about an hour per a 2GB VCF...
 Directory = /OpenPedCan_Data/autoGVP/AutoGVP-main/prereqs/intervar 
 
+```bash
 git clone https://github.com/WGLab/InterVar.git
-
-curl https://www.omim.org/static/omim/data/mim2gene.txt > intervar/Intervar/intervardb/mim2gene.txt   — put in intervar/Intervar/intervardb/, aka GitHub repo dir.
-
+# put mim2gene.txt in intervar/Intervar/intervardb/, aka GitHub repo dir.
+curl https://www.omim.org/static/omim/data/mim2gene.txt > intervar/Intervar/intervardb/mim2gene.txt  
+```
 Copy Perl scripts from annovar to interVar directory (InterVar needs several of them.)
 `cp ~/OpenPedCan_Data/autoGVP/AutoGVP-main/prereqs/annovar/*.pl ~/OpenPedCan_Data/autoGVP/AutoGVP-main/prereqs/intervar/InterVar/`
 

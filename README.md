@@ -42,9 +42,9 @@ nbl_out_dir= ~/OpenPedCan_Data/single_vcfs/split_vcfs/nbl/
 
 
 # 1. InterVar 
-
+### Needs to be run using the HPC via SLURM job submission. See below for details
 takes about an hour per a 2GB VCF...
-Directory = /OpenPedCan_Data/autoGVP/AutoGVP-main/prereqs/intervar 
+Directory = /scr1/users/stearb/U24/InterVar
 
 ```bash
 git clone https://github.com/WGLab/InterVar.git
@@ -58,6 +58,26 @@ Run in the InterVar GitHub directory (this will d/l a bunch of large files the f
 ```
 python Intervar.py -b hg38 -i ~/OpenPedCan_Data/CHD_KF_phs001846/809aa738-a3a2-4923-ae67-b065ba5f353e.single.vqsr.filtered.vep_105.vcf.gz --input_type=VCF -o test_VEP_interVar
 ```
+
+
+## Submit an array job to process both CHD and NBL cohorts 
+
+get number of files in both cohorts. Set it as a parameter in the script you will run sbatch with.
+```
+# https://stackoverflow.com/questions/77789177/how-to-run-a-slurm-job-array-that-iterates-over-a-number-of-files
+ls /mnt/isilon/opentargets/OpenPedCan_Data/single_vcfs/split_vcfs/chd/*single.vcf.gz > chd_files_list.txt
+cat chd_files_list.txt nbl_files_list.txt > chd_nbl_vcfs.txt
+rm chd_files_list.txt nbl_files_list.txt 
+wc -l chd_nbl_vcfs.txt     # put this in this parameter #SBATCH --array=1-1157
+
+# and run with:
+# this will launch 1157 jobs, so test before you do this
+sbatch --array=1-1157 test.sh 
+```
+
+
+
+
 
 # 2. Annovar 
 Directory = ~/OpenPedCan_Data/autoGVP/AutoGVP-main/prereqs/annovar 

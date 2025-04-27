@@ -30,7 +30,7 @@ CHD_DIR="${OPEN_PEDCAN_DIR}/CHD_KF_phs001138/vcf/vep_105/"
 NBL_DIR="${OPEN_PEDCAN_DIR}/CHD_KF_phs001436/vcf/"
 RSBD_DIR="${OPEN_PEDCAN_DIR}/CHD_KF_phs002590/vcf/"
 MMC_DIR="${OPEN_PEDCAN_DIR}/CHD_KF_phs002187/"
-
+ 
 # Proband lists locations
 chd_probands= ~/OpenPedCan_Data/single_vcfs/proband_ids/chd_probands.txt
 nbl_probands= ~/OpenPedCan_Data/single_vcfs/proband_ids/nbl_probands.txt

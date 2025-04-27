@@ -1,4 +1,4 @@
-# autoGVP_scripts
+# AutoGVP scripts
 Scripts for running autoGVP and the pre processing steps
 
 # Clone repo

@@ -1,5 +1,5 @@
 # autoGVP_scripts
-Scripts for running autoGVP
+Scripts for running autoGVP and the pre processing steps
 
 # Clone repo
 Autogvp — https://github.com/diskin-lab-chop/AutoGVP?tab=readme-ov-file
@@ -75,7 +75,12 @@ wc -l chd_nbl_vcfs.txt     # put this in this parameter #SBATCH --array=1-1157
 sbatch --array=1-1157 test.sh 
 ```
 
-
+Look at the output files to check if there were errors:
+```
+# check if any of the interval jobs had an ‘Error:’ 
+grep -rnw 'out_files/' -e 'Error:' 
+```
+If you do | wc -l , you can get the number of files that have an ‘Error:’
 
 
 

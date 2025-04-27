@@ -25,9 +25,11 @@ There are two bash scripts that split the multi-patient VCFs.
 
 ```
 # (ignore the names of the files eg. CHD_KF_*, these are incorrect)
-GNINT VCFs = ~/OpenPedCan_Data/CHD_KF_phs001846/
-CHD VCFs =  ~/OpenPedCan_Data/CHD_KF_phs001138/vcf/vep_105/
-NBL VCFs = ~/OpenPedCan_Data/CHD_KF_phs001436/vcf/
+GNINT_DIR="${OPEN_PEDCAN_DIR}/CHD_KF_phs001846/"
+CHD_DIR="${OPEN_PEDCAN_DIR}/CHD_KF_phs001138/vcf/vep_105/"
+NBL_DIR="${OPEN_PEDCAN_DIR}/CHD_KF_phs001436/vcf/"
+RSBD_DIR="${OPEN_PEDCAN_DIR}/CHD_KF_phs002590/vcf/"
+MMC_DIR="${OPEN_PEDCAN_DIR}/CHD_KF_phs002187/"
 
 # Proband lists locations
 chd_probands= ~/OpenPedCan_Data/single_vcfs/proband_ids/chd_probands.txt
@@ -75,6 +77,7 @@ wc -l chd_nbl_vcfs.txt     # put this in this parameter #SBATCH --array=1-1157
 sbatch --array=1-1157 test.sh 
 ```
 
+# Clean up InterVar 
 Look at the output files to check if there were errors:
 ```
 # check if any of the interval jobs had an ‘Error:’ 
@@ -82,7 +85,8 @@ grep -rnw 'out_files/' -e 'Error:'
 ```
 If you do | wc -l , you can get the number of files that have an ‘Error:’
 
-
+Remove intervar input files. Need to do this for each directory we run intervar for.
+rm /mnt/isilon/opentargets/OpenPedCan_Data/single_vcfs/split_vcf/chd/*.avinput
 
 # 2. Annovar 
 Directory = ~/OpenPedCan_Data/autoGVP/AutoGVP-main/prereqs/annovar 

@@ -98,8 +98,9 @@ tar -xvzf annovar.latest.tar.gz
 
 
 
-First run this command in annovar directory to download an additional db file
+First run these commands in annovar directory to download additional db files
 ```
+perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar gnomad211_exome humandb/
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar gnomad211_genome humandb/
 ```
 

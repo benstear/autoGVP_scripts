@@ -74,7 +74,7 @@ wc -l chd_nbl_vcfs.txt     # put this in this parameter #SBATCH --array=1-1157
 
 # and run with:
 # this will launch 1157 jobs, so test before you do this
-sbatch --array=1-1157 test.sh 
+sbatch --array=1-1157 run_intervar.sh 
 ```
 
 # Clean up InterVar 

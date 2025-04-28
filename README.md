@@ -77,6 +77,9 @@ cat chd_files_list.txt nbl_files_list.txt > chd_nbl_vcfs.txt
 rm chd_files_list.txt nbl_files_list.txt 
 wc -l chd_nbl_vcfs.txt     # put this in this parameter #SBATCH --array=1-1157
 
+# make sure the full path is present in these files. If not, you can prepend the lines of the file with the missing path:
+awk '{print "/mnt/isilon/opentargets/OpenPedCan_Data/single_vcfs/split_vcfs/rsbd/" $0}' rsbd_vcf_files.txt > rsbd_files.txt
+
 # and run with:
 # this will launch 1157 jobs, so test before you do this
 sbatch --array=1-1157 run_intervar.sh 

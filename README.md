@@ -89,11 +89,19 @@ Remove intervar input files. Need to do this for each directory we run intervar 
 rm /mnt/isilon/opentargets/OpenPedCan_Data/single_vcfs/split_vcf/chd/*.avinput
 
 # 2. Annovar 
+https://annovar.openbioinformatics.org/en/latest/
 Directory = ~/OpenPedCan_Data/autoGVP/AutoGVP-main/prereqs/annovar 
 
 Download ANNOVAR from website
 Need to enter email on website and they will send download link.
 tar -xvzf annovar.latest.tar.gz
+
+
+
+First run this command in annovar directory to download an additional db file
+```
+perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar gnomad211_genome humandb/
+```
 
 Run Annovar:
 ```

@@ -103,10 +103,14 @@ tar -xvzf annovar.latest.tar.gz
 
 
 
-First run these commands in annovar directory to download additional db files
+First run these commands in annovar directory to download additional db files:
 ```
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar gnomad211_exome humandb/
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar gnomad211_genome humandb/
+
+# annovar complains that these files don't exist in the hg38/ folder so make hg38 folder and move them into it
+mkdir hg38
+mv humandb/hg38_gnomad211_* hg38
 ```
 
 Run Annovar:

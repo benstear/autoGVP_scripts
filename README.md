@@ -85,16 +85,26 @@ awk '{print "/mnt/isilon/opentargets/OpenPedCan_Data/single_vcfs/split_vcfs/rsbd
 sbatch --array=1-1157 run_intervar.sh 
 ```
 
-# Clean up InterVar 
+# Check output and Clean up files from InterVar runs.
 Look at the output files to check if there were errors:
 ```
 # check if any of the interval jobs had an ‘Error:’ 
 grep -rnw 'out_files/' -e 'Error:' 
 ```
-If you do | wc -l , you can get the number of files that have an ‘Error:’
+If you do `| wc -l` , you can get the number of files that have an ‘Error:’
+
+grep -rnw 'out_files_chd_nbl/' -e 'Error:' | wc -l  ---> ~30 misssing VCFs for chd & nbl run
+grep -rnw 'out_files_gnint_mmc/' -e 'Error:' | wc -l  ---> 18 missing VCFs for gnint & mmc  run
+
 
 Remove intervar input files. Need to do this for each directory we run intervar for.
 rm /mnt/isilon/opentargets/OpenPedCan_Data/single_vcfs/split_vcf/chd/*.avinput
+
+
+
+
+
+
 
 # 2. Annovar 
 https://annovar.openbioinformatics.org/en/latest/

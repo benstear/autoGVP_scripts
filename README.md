@@ -97,9 +97,10 @@ grep -rnw 'out_files_chd_nbl/' -e 'Error:' | wc -l  ---> ~30 misssing VCFs for c
 grep -rnw 'out_files_gnint_mmc/' -e 'Error:' | wc -l  ---> 18 missing VCFs for gnint & mmc  run
 
 
-Remove intervar input files. Need to do this for each directory we run intervar for.
+After running, remove intervar input files. Need to do this for each directory we run intervar for.
+```
 rm /mnt/isilon/opentargets/OpenPedCan_Data/single_vcfs/split_vcf/chd/*.avinput
-
+```
 
 
 
@@ -133,11 +134,26 @@ perl table_annovar.pl data/test_VEP.vcf hg38 --buildver hg38 --out test_VEP --re
 
 
 
+# 3. AutoPVS1
+```
+# Clone repo
+git clone https://github.com/d3b-center/D3b-autoPVS1.git
+```
 
-/mnt/isilon/dbhi_bfx/bin/R-3.1.3/bin/Rscript
 
 
 
-No docker on HPC, use singularity to pull docker image — https://elearning.vib.be/courses/introduction-to-docker/lessons/run-and-execute-singularity-images/topic/using-docker-images-with-singularity/
+
+
+
+
+# Run AutoGVP
+```
+No docker on HPC, use singularity to pull docker image —
+https://elearning.vib.be/courses/introduction-to-docker/lessons/run-and-execute-singularity-images/topic/using-docker-images-with-singularity/
 singularity pull autogvp.sif docker://pgc-images.sbgenomics.com/diskin-lab/autogvp:v1.0.3
+```
 
+```
+/mnt/isilon/dbhi_bfx/bin/R-3.1.3/bin/Rscript
+```

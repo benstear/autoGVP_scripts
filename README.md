@@ -141,19 +141,16 @@ git clone https://github.com/d3b-center/D3b-autoPVS1.git
 ```
 
 
-
-
-
-
-
-
 # Run AutoGVP
 ```
 No docker on HPC, use singularity to pull docker image —
 https://elearning.vib.be/courses/introduction-to-docker/lessons/run-and-execute-singularity-images/topic/using-docker-images-with-singularity/
-singularity pull autogvp.sif docker://pgc-images.sbgenomics.com/diskin-lab/autogvp:v1.0.3
+
+# From autoGVP directory:
+# download files
+scripts/download_db_files.sh
+module load R
+# get clinvar annotations
+Rscript scripts/select-clinVar-submissions.R --variant_summary data/variant_summary.txt.gz --submission_summary data/submission_summary.txt.gz --outdir results --conceptID_list data/clinvar_cpg_concept_ids.txt --conflict_res "latest"
 ```
 
-```
-/mnt/isilon/dbhi_bfx/bin/R-3.1.3/bin/Rscript
-```

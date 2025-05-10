@@ -5,7 +5,7 @@ Scripts for running autoGVP and the pre processing steps
 Autogvp — https://github.com/diskin-lab-chop/AutoGVP?tab=readme-ov-file
 ```bash
 cd ~/OpenPedCan_Data/
-git clone git@github.com:diskin-lab-chop/AutoGVP.git
+git clone https://github.com/diskin-lab-chop/AutoGVP.git
 ```
 
 set some path names for quick cd'ing:

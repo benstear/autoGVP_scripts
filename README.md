@@ -140,6 +140,12 @@ perl table_annovar.pl data/test_VEP.vcf hg38 --buildver hg38 --out test_VEP --re
 git clone https://github.com/d3b-center/D3b-autoPVS1.git
 ```
 
+To get the input files needed to run AutoPVS1, navigate to here: https://github.com/d3b-center/D3b-autoPVS1/tree/main?tab=readme-ov-file#5-configuration and click the link under the config.ini example, which will take you to CAVATICA. Download the `autoPVS1_references_sym_updated.tar.gz` file and place it in the AutoPVS1 directory.
+
+
+### Liftover of VEP 104 gene symbols to VEP 105 gene symbols
+...
+
 
 # Run AutoGVP
 ```

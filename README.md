@@ -72,6 +72,7 @@ python Intervar.py -b hg38 -i ~/OpenPedCan_Data/CHD_KF_phs001846/809aa738-a3a2-4
 get number of files in both cohorts. Set it as a parameter in the script you will run sbatch with.
 ```
 # https://stackoverflow.com/questions/77789177/how-to-run-a-slurm-job-array-that-iterates-over-a-number-of-files
+# for TALL files --> ls /mnt/isilon/opentargets/OpenPedCan_Data/CHD_KF_002276/vcf/*.single.vqsr.filtered.vep_105.vcf.gz > tall_files_list.txt
 ls /mnt/isilon/opentargets/OpenPedCan_Data/single_vcfs/split_vcfs/chd/*single.vcf.gz > chd_files_list.txt
 cat chd_files_list.txt nbl_files_list.txt > chd_nbl_vcfs.txt
 rm chd_files_list.txt nbl_files_list.txt 

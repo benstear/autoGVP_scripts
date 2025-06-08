@@ -8,12 +8,6 @@ cd ~/OpenPedCan_Data/
 git clone https://github.com/diskin-lab-chop/AutoGVP.git
 ```
  
-set some path names for quick cd'ing:
-```
-intvr=/scr1/users/stearb/U24/InterVar/
-anvr=/scr1/users/stearb/U24/annovar
-svcf=/mnt/isilon/opentargets/OpenPedCan_Data/single_vcfs/
-```
 # First, Split multi-patient VCF files into single VCF files (if necessary). 
 List of proband IDs were pulled from the Variant Workbench (VWB) table called `Occurences`
 with the following code (Code is in the U24 Data Studio session on CAVATICA):

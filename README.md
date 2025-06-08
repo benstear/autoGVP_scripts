@@ -14,7 +14,7 @@ intvr=/scr1/users/stearb/U24/InterVar/
 anvr=/scr1/users/stearb/U24/annovar
 svcf=/mnt/isilon/opentargets/OpenPedCan_Data/single_vcfs/
 ```
-# First, Split multi-patient VCF files into single VCF files. 
+# First, Split multi-patient VCF files into single VCF files (if necessary). 
 List of proband IDs were pulled from the Variant Workbench (VWB) table called `Occurences`
 with the following code (Code is in the U24 Data Studio session on CAVATICA):
 ```python
@@ -148,7 +148,7 @@ To get the input files needed to run AutoPVS1, navigate to here: https://github.
 ...
 
 
-# Run AutoGVP
+# 4. Run AutoGVP
 ```
 No docker on HPC, use singularity to pull docker image —
 https://elearning.vib.be/courses/introduction-to-docker/lessons/run-and-execute-singularity-images/topic/using-docker-images-with-singularity/

@@ -7,6 +7,8 @@ Autogvp — https://github.com/diskin-lab-chop/AutoGVP?tab=readme-ov-file
 cd ~/OpenPedCan_Data/
 git clone https://github.com/diskin-lab-chop/AutoGVP.git
 ```
+
+# The full script, to run all steps, is located at `/scr1/users/stearb/U24/autoGVP/AutoGVP-main/custom_autogvp.sh` and the outputs are currently in `/mnt/isilon/opentargets/U24KG/data/autogvp_results`
  
 # First, Split multi-patient VCF files into single VCF files (if necessary). 
 List of proband IDs were pulled from the Variant Workbench (VWB) table called `Occurences`

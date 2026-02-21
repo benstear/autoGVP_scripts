@@ -8,7 +8,11 @@ cd ~/OpenPedCan_Data/
 git clone https://github.com/diskin-lab-chop/AutoGVP.git
 ```
 
-# The full script, to run all steps, is located at `/scr1/users/stearb/U24/autoGVP/AutoGVP-main/custom_autogvp.sh` and the outputs are currently in `/mnt/isilon/opentargets/U24KG/data/autogvp_results`
+# The full script, to run all steps, is located at `/scr1/users/stearb/U24/autoGVP/AutoGVP-main/custom_autogvp.sh` and the outputs are currently in `/mnt/isilon/opentargets/U24KG/data/autogvp_results`. 
+# When I reran the cohorts using 1% MAF thresold and added GQ>10, I am now storing the full annotation autogvp outputs in /mnt/isilon/opentargets/U24KG/data/autogvp_results/data2026/
+
+### To automatically find which VCFs have not been run yet, use this script with the cohort abbr. as the only arg.
+```/mnt/isilon/opentargets/OpenPedCan_Data/single_vcfs/scripts/get_remaining_files.sh nbl```
  
 # First, Split multi-patient VCF files into single VCF files (if necessary). 
 List of proband IDs were pulled from the Variant Workbench (VWB) table called `Occurences`
